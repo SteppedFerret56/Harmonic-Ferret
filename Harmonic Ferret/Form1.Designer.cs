@@ -98,4 +98,3 @@
         private System.Windows.Forms.ProgressBar barAudioTime;
     }
 }
-
