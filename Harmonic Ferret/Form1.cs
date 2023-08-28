@@ -1,46 +1,55 @@
-﻿using NAudio.Wave;
+using NAudio.Wave;
 using System;
-using System.Data.Odbc;
 using System.IO;
-using System.Security.Cryptography;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Runtime.InteropServices;
 
 namespace Harmonic_Ferret
 {
     public partial class Form1 : Form
     {
+
+        [DllImport("kernel32.dll")]
+        private static extern bool AllocConsole();
+        private DirectSoundOut output;
+        private WaveStream audioFileStream;
+        private System.Windows.Forms.Timer barAudioTimeTimer = new System.Windows.Forms.Timer();
+
         public Form1()
         {
             InitializeComponent();
+
+            // Set up the timer
+            barAudioTimeTimer.Interval = 1000; // 1 second interval
+            barAudioTimeTimer.Tick += barAudioTime_Tick;
+
+            AllocConsole(); // Allocate a console window
         }
 
-        // Song List & File open
 
         String[] paths, files;
 
-        private NAudio.Wave.WaveFileReader wave = null;
-
-        private NAudio.Wave.DirectSoundOut output = null;
 
         private void BtnPlayPause_Click(object sender, EventArgs e)
         {
             if (output != null)
             {
-                if (output.PlaybackState == NAudio.Wave.PlaybackState.Playing) output.Pause();
-                else if (output.PlaybackState == NAudio.Wave.PlaybackState.Paused) output.Play();
+                if (output.PlaybackState == PlaybackState.Playing) output.Pause();
+                else if (output.PlaybackState == PlaybackState.Paused) output.Play();
             }
         }
+
 
         private void listBoxSongs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBoxSongs.SelectedIndex >= 0)
+            if (listBoxSongs.SelectedIndex >= 0 && listBoxSongs.SelectedIndex < paths.Length)
             {
                 string selectedFilePath = paths[listBoxSongs.SelectedIndex];
+                Console.WriteLine("Selected file path: " + selectedFilePath);
+                StopAudio();
                 PlayAudio(selectedFilePath);
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog
@@ -51,15 +60,24 @@ namespace Harmonic_Ferret
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                files = ofd.SafeFileNames;
-                paths = ofd.FileNames;
-                for (int i = 0; i < files.Length; i++)
+                if (files == null || paths == null)
+                {
+                    files = new string[0];
+                    paths = new string[0];
+                }
+
+                files = files.Concat(ofd.SafeFileNames).ToArray();
+                paths = paths.Concat(ofd.FileNames).ToArray();
+
+                for (int i = listBoxSongs.Items.Count; i < files.Length; i++)
                 {
                     listBoxSongs.Items.Add(files[i]);
                 }
 
-                string selectedFilePath = paths[0]; // Select the first file in the selection
-                PlayAudio(selectedFilePath);
+                if (listBoxSongs.Items.Count > 0)
+                {
+                    listBoxSongs.SelectedIndex = 0; // Select the first item
+                }
             }
         }
 
@@ -72,44 +90,40 @@ namespace Harmonic_Ferret
             switch (fileExtension)
             {
                 case ".wav":
-                    wave = new NAudio.Wave.WaveFileReader(filePath);
-                    if (wave != null)
-                    {
-                        output = new NAudio.Wave.DirectSoundOut();
-                        if (output != null)
-                        {
-                            output.Init(new NAudio.Wave.WaveChannel32(wave));
-                            output.Play();
-                        }
-                    }
+                    audioFileStream = new WaveFileReader(filePath);
+                    output = new DirectSoundOut();
+                    output.Init(new WaveChannel32((WaveFileReader)audioFileStream));
+                    output.Play();
+                    barAudioTimeTimer.Start(); // Start timer for progress bar
                     break;
 
                 case ".mp3":
-                    var reader = new Mp3FileReader(filePath);
-                    if (reader != null)
-                    {
-                        output = new NAudio.Wave.DirectSoundOut();
-                        if (output != null)
-                        {
-                            output.Init(reader);
-                            output.Play();
-                        }
-                    }
+                    audioFileStream = new Mp3FileReader(filePath);
+                    output = new DirectSoundOut();
+                    output.Init(new WaveChannel32(audioFileStream));
+                    output.Play();
+                    barAudioTimeTimer.Start(); // Start timer for progress bar
                     break;
 
                 default:
                     // Handle unsupported file types
                     break;
             }
-
-            BtnPlayPause.Enabled = true;
         }
+
 
         private void barAudioTime_Tick(object sender, EventArgs e)
         {
-            if (output != null && output.PlaybackState == NAudio.Wave.PlaybackState.Playing)
+            if (output != null && output.PlaybackState == PlaybackState.Playing)
             {
-                barAudioTime.Value = (int)wave.CurrentTime.TotalSeconds;
+                double currentTime = audioFileStream.CurrentTime.TotalSeconds;
+                double totalAudioLength = audioFileStream.TotalTime.TotalSeconds;
+
+                // Calculate progress as a percentage
+                int progressPercentage = (int)((currentTime / totalAudioLength) * 100);
+
+                // Update progress bar value
+                barAudioTime.Value = progressPercentage;
             }
         }
 
@@ -117,7 +131,7 @@ namespace Harmonic_Ferret
         {
             if (output != null)
             {
-                if (output.PlaybackState == NAudio.Wave.PlaybackState.Playing)
+                if (output.PlaybackState == PlaybackState.Playing)
                 {
                     output.Stop();
                 }
@@ -125,11 +139,14 @@ namespace Harmonic_Ferret
                 output = null;
             }
 
-            if (wave != null)
+            if (audioFileStream != null)
             {
-                wave.Dispose();
-                wave = null;
+                audioFileStream.Dispose();
+                audioFileStream = null;
             }
+
+            barAudioTimeTimer.Stop(); // Stop timer when audio playback stops
+            barAudioTime.Value = 0;   // Reset progress bar value
         }
     }
 }

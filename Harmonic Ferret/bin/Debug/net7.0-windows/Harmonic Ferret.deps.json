@@ -1,0 +1,250 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Harmonic Ferret/1.0.0": {
+        "dependencies": {
+          "NAudio": "2.2.0",
+          "z440.atl.core": "5.5.0"
+        },
+        "runtime": {
+          "Harmonic Ferret.dll": {}
+        }
+      },
+      "Microsoft.NETCore.Platforms/3.1.0": {},
+      "Microsoft.Win32.Registry/4.7.0": {
+        "dependencies": {
+          "System.Security.AccessControl": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        }
+      },
+      "NAudio/2.2.0": {
+        "dependencies": {
+          "NAudio.Asio": "2.2.0",
+          "NAudio.Core": "2.2.0",
+          "NAudio.Midi": "2.2.0",
+          "NAudio.Wasapi": "22.0.0",
+          "NAudio.WinForms": "2.2.0",
+          "NAudio.WinMM": "2.2.0"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/NAudio.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "NAudio.Asio/2.2.0": {
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "NAudio.Core/2.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "NAudio.Midi/2.2.0": {
+        "dependencies": {
+          "NAudio.Core": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "NAudio.Wasapi/22.0.0": {
+        "dependencies": {
+          "NAudio.Core": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {
+            "assemblyVersion": "22.0.0.0",
+            "fileVersion": "22.0.0.0"
+          }
+        }
+      },
+      "NAudio.WinForms/2.2.0": {
+        "dependencies": {
+          "NAudio.WinMM": "2.2.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/NAudio.WinForms.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "NAudio.WinMM/2.2.0": {
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "System.Security.AccessControl/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        }
+      },
+      "System.Security.Principal.Windows/4.7.0": {},
+      "System.Threading.Tasks.Extensions/4.5.4": {},
+      "Ude.NetStandard/1.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/Ude.NetStandard.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "z440.atl.core/5.5.0": {
+        "dependencies": {
+          "System.Threading.Tasks.Extensions": "4.5.4",
+          "Ude.NetStandard": "1.2.0",
+          "Zomp.SyncMethodGenerator": "1.0.12"
+        },
+        "runtime": {
+          "lib/net6.0/ATL.dll": {
+            "assemblyVersion": "5.5.0.0",
+            "fileVersion": "5.5.0.0"
+          }
+        }
+      },
+      "Zomp.SyncMethodGenerator/1.0.12": {}
+    }
+  },
+  "libraries": {
+    "Harmonic Ferret/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.NETCore.Platforms/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
+      "path": "microsoft.netcore.platforms/3.1.0",
+      "hashPath": "microsoft.netcore.platforms.3.1.0.nupkg.sha512"
+    },
+    "Microsoft.Win32.Registry/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
+      "path": "microsoft.win32.registry/4.7.0",
+      "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
+    },
+    "NAudio/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1ZImYczIftCJFV9dLfB5seeo0lSem3wBkbx134XicCRNwPf3JFGNshszCZyN7AW+Q90lzQA0SRAlSepaFNgC4A==",
+      "path": "naudio/2.2.0",
+      "hashPath": "naudio.2.2.0.nupkg.sha512"
+    },
+    "NAudio.Asio/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mv2Nv5NAORFpGg8Aehu5biAiT4izj+RvctoTEKWqPgt0FQJXx7kd03vyQHIOHYmvSp5q26lAkBCzSQuRG/8ldw==",
+      "path": "naudio.asio/2.2.0",
+      "hashPath": "naudio.asio.2.2.0.nupkg.sha512"
+    },
+    "NAudio.Core/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6jOWa+ZB04ByuWSSQ1cQnKv6zujX0ZCsSpd/UrCqHyHbUGuVP64X76QTwphudGUJRUBAIsZ9HVMqPaXP6qlpPw==",
+      "path": "naudio.core/2.2.0",
+      "hashPath": "naudio.core.2.2.0.nupkg.sha512"
+    },
+    "NAudio.Midi/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+SO7cw3mrH2k5TQxZdt6FvmW7OnwvzFwPbjXGpD2lqnuTfN3Xr13nwqfX9DDcmT7/P+qJy+mqrAZwaN0EuDbrA==",
+      "path": "naudio.midi/2.2.0",
+      "hashPath": "naudio.midi.2.2.0.nupkg.sha512"
+    },
+    "NAudio.Wasapi/22.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wDPj5OVl54TGnRbdPJQa6VuAShe3rYDgCLFn4jrqHzpGEQ54FCzmjDsS/KLbb0M6mln83K+kQ1vQzY7SQGDEEg==",
+      "path": "naudio.wasapi/22.0.0",
+      "hashPath": "naudio.wasapi.22.0.0.nupkg.sha512"
+    },
+    "NAudio.WinForms/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vWJ6NQY5p9BvJSvI3VydFXjwFl91iOj9AOI24Pa4G/9fNp8CunHgxVuOcJfjZ7ZEEVWK+g4NslS+tDlNze7LeQ==",
+      "path": "naudio.winforms/2.2.0",
+      "hashPath": "naudio.winforms.2.2.0.nupkg.sha512"
+    },
+    "NAudio.WinMM/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MnszU7s34+OVParz72w4dNhYFjjk3Cu/nI9mqHOuS2nvxDT9XvqmY64mSwDrxY3CQReUWKHj3sBkY//VCMgfGg==",
+      "path": "naudio.winmm/2.2.0",
+      "hashPath": "naudio.winmm.2.2.0.nupkg.sha512"
+    },
+    "System.Security.AccessControl/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JECvTt5aFF3WT3gHpfofL2MNNP6v84sxtXxpqhLBCcDRzqsPBmHhQ6shv4DwwN2tRlzsUxtb3G9M3763rbXKDg==",
+      "path": "system.security.accesscontrol/4.7.0",
+      "hashPath": "system.security.accesscontrol.4.7.0.nupkg.sha512"
+    },
+    "System.Security.Principal.Windows/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
+      "path": "system.security.principal.windows/4.7.0",
+      "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
+    },
+    "System.Threading.Tasks.Extensions/4.5.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
+      "path": "system.threading.tasks.extensions/4.5.4",
+      "hashPath": "system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+    },
+    "Ude.NetStandard/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zRWpPAxBg3lNdm4UiKixTe+DFPoNid9CILggTCy/0WR2WKETe17kTWhiiIpLB2k5IEgnvA0QLfKlvd6Tvu0pzA==",
+      "path": "ude.netstandard/1.2.0",
+      "hashPath": "ude.netstandard.1.2.0.nupkg.sha512"
+    },
+    "z440.atl.core/5.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-w6XQAKAxURV2HMjSvK5yv1AmJfjDNxFP7Uhm98uEWrof/ZVmlRr65unBUw9Y684n+DdCAYv0Et7lx6FZSms4Ig==",
+      "path": "z440.atl.core/5.5.0",
+      "hashPath": "z440.atl.core.5.5.0.nupkg.sha512"
+    },
+    "Zomp.SyncMethodGenerator/1.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0f9leWxTcyd43fmPyTeC6qgjMEsS/8xmhJFVr0mn9wYuu1D7ljVr1/TU+61RdgXksw5vigT5AoQvVVoaoeL0UA==",
+      "path": "zomp.syncmethodgenerator/1.0.12",
+      "hashPath": "zomp.syncmethodgenerator.1.0.12.nupkg.sha512"
+    }
+  }
+}

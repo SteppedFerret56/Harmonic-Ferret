@@ -1,0 +1,27 @@
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\Harmonic Ferret.exe
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\Harmonic Ferret.deps.json
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\Harmonic Ferret.runtimeconfig.json
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\Harmonic Ferret.dll
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\Harmonic Ferret.pdb
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\NAudio.dll
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\NAudio.Asio.dll
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\NAudio.Core.dll
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\NAudio.Midi.dll
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\NAudio.Wasapi.dll
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\NAudio.WinForms.dll
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\NAudio.WinMM.dll
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\Ude.NetStandard.dll
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\bin\Debug\net7.0-windows\ATL.dll
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\obj\Debug\net7.0-windows\Harmonic Ferret.csproj.AssemblyReference.cache
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\obj\Debug\net7.0-windows\Harmonic_Ferret.Form1.resources
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\obj\Debug\net7.0-windows\Harmonic Ferret.csproj.GenerateResource.cache
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\obj\Debug\net7.0-windows\Harmonic Ferret.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\obj\Debug\net7.0-windows\Harmonic Ferret.AssemblyInfoInputs.cache
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\obj\Debug\net7.0-windows\Harmonic Ferret.AssemblyInfo.cs
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\obj\Debug\net7.0-windows\Harmonic Ferret.csproj.CoreCompileInputs.cache
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\obj\Debug\net7.0-windows\Harmonic Ferret.csproj.CopyComplete
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\obj\Debug\net7.0-windows\Harmonic Ferret.dll
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\obj\Debug\net7.0-windows\refint\Harmonic Ferret.dll
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\obj\Debug\net7.0-windows\Harmonic Ferret.pdb
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\obj\Debug\net7.0-windows\Harmonic Ferret.genruntimeconfig.cache
+C:\Users\flynn\Desktop\Harmonic-Ferret\Harmonic Ferret\obj\Debug\net7.0-windows\ref\Harmonic Ferret.dll
