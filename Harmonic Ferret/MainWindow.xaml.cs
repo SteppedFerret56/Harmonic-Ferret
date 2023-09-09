@@ -1,56 +1,33 @@
-using NAudio.Wave;
+﻿using NAudio.Wave;
 using System;
-using System.IO;
-using System.Windows.Forms;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Windows;
+using System.Windows.Controls;
+using System.IO;
+using Microsoft.Win32;
 
 namespace Harmonic_Ferret
 {
-    public partial class Form1 : Form
-    {
 
+    public partial class MainWindow : Window
+    {
         [DllImport("kernel32.dll")]
-        private static extern bool AllocConsole();
+        private static extern IntPtr SomeNativeFunction();
         private DirectSoundOut output;
         private WaveStream audioFileStream;
         private System.Windows.Forms.Timer barAudioTimeTimer = new System.Windows.Forms.Timer();
 
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
-
-            // Set up the timer
             barAudioTimeTimer.Interval = 1000; // 1 second interval
             barAudioTimeTimer.Tick += barAudioTime_Tick;
-
-            AllocConsole(); // Allocate a console window
         }
-
 
         String[] paths, files;
 
-
-        private void BtnPlayPause_Click(object sender, EventArgs e)
-        {
-            if (output != null)
-            {
-                if (output.PlaybackState == PlaybackState.Playing) output.Pause();
-                else if (output.PlaybackState == PlaybackState.Paused) output.Play();
-            }
-        }
-
-
-        private void listBoxSongs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listBoxSongs.SelectedIndex >= 0 && listBoxSongs.SelectedIndex < paths.Length)
-            {
-                string selectedFilePath = paths[listBoxSongs.SelectedIndex];
-                Console.WriteLine("Selected file path: " + selectedFilePath);
-                StopAudio();
-                PlayAudio(selectedFilePath);
-            }
-        }
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSelSongs_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog
             {
@@ -58,8 +35,11 @@ namespace Harmonic_Ferret
                 Multiselect = true,
             };
 
-            if (ofd.ShowDialog() == DialogResult.OK)
+            bool? result = ofd.ShowDialog(); // ShowDialog returns a DialogResult in WinForms
+
+            if (result == true) // Check if the user clicked "OK"
             {
+                // User clicked "OK," continue with your code
                 if (files == null || paths == null)
                 {
                     files = new string[0];
@@ -78,6 +58,40 @@ namespace Harmonic_Ferret
                 {
                     listBoxSongs.SelectedIndex = 0; // Select the first item
                 }
+            }
+        }
+
+        private void listBoxSongs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listBoxSongs.SelectedIndex >= 0 && listBoxSongs.SelectedIndex < paths.Length)
+            {
+                string selectedFilePath = paths[listBoxSongs.SelectedIndex];
+                StopAudio();
+                PlayAudio(selectedFilePath);
+            }
+        }
+
+        private void btnPlayPause_Click(object sender, RoutedEventArgs e)
+        {
+            if (output != null)
+            {
+                if (output.PlaybackState == PlaybackState.Playing) output.Pause();
+                else if (output.PlaybackState == PlaybackState.Paused) output.Play();
+            }
+        }
+
+        private void barAudioTime_Tick(object sender, EventArgs e)
+        {
+            if (output != null && output.PlaybackState == PlaybackState.Playing)
+            {
+                double currentTime = audioFileStream.CurrentTime.TotalSeconds;
+                double totalAudioLength = audioFileStream.TotalTime.TotalSeconds;
+
+                // Calculate progress as a percentage
+                int progressPercentage = (int)((currentTime / totalAudioLength) * 100);
+
+                // Update progress bar value
+                barAudioTime.Value = progressPercentage;
             }
         }
 
@@ -108,22 +122,6 @@ namespace Harmonic_Ferret
                 default:
                     // Handle unsupported file types
                     break;
-            }
-        }
-
-
-        private void barAudioTime_Tick(object sender, EventArgs e)
-        {
-            if (output != null && output.PlaybackState == PlaybackState.Playing)
-            {
-                double currentTime = audioFileStream.CurrentTime.TotalSeconds;
-                double totalAudioLength = audioFileStream.TotalTime.TotalSeconds;
-
-                // Calculate progress as a percentage
-                int progressPercentage = (int)((currentTime / totalAudioLength) * 100);
-
-                // Update progress bar value
-                barAudioTime.Value = progressPercentage;
             }
         }
 
